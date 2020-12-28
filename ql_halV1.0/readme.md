@@ -28,12 +28,11 @@
 # - 2、优化函数命名结构体命令使代码更健壮 
 
 **2020.12.25 V20201223**
-＃-1，增加char * split_string_by_word（PUART_INFO_CTX dev，const char * word）函数
-＃-2，优化AT指令函数
+# - 1、 增加char * split_string_by_word（PUART_INFO_CTX dev，const char * word）函数
+# - 2、 优化AT指令函数
 # - 3、优化发送命令参数返回中回复状态枚举定义
 # - 4、解决回显关闭打开回复不同包的问题，回复行数的意义变成最大回复行数
 
-1个2
 
 **Copyright (C) 2020 marco**
 
