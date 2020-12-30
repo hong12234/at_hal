@@ -234,13 +234,12 @@ FA_RESULT_CODE urc_match(PUART_INFO_CTX dev, char *data, unsigned short int leng
 char *split_string_by_word(PUART_INFO_CTX dev, const char *word)
 {
      char *resp_buf = NULL;
-
+     //internal_log("dev->at_res_num: %d\r\n",dev->at_res_num);
      for (char i = 0; i < dev->at_res_num; i++)
      {
           if (strstr(dev->at_res_data[i], word))
           {
                resp_buf = dev->at_res_data[i];
-
                return resp_buf;
           }
      }

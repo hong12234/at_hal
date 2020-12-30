@@ -52,6 +52,10 @@ extern "C"
 #define SEND_BUF_LEN 50 /*串口发送命令的最大长度 */
 #endif
 
+#ifndef AT_RECEIVE_LEN
+#define AT_RECEIVE_LEN 5 /*at响应字符串最大长度 */
+#endif
+
 	/* Exported types ------------------------------------------------------------*/
 	typedef enum /* Results of Disk Functions */
 	{
@@ -77,14 +81,14 @@ extern "C"
 	typedef signed int (*uart_write)(unsigned char *data, unsigned short length);
 	typedef struct ST_UART_INFO_CTX /*uart 信息体*/
 	{
-		uart_write write;				   /* 串口发送 */
-		_urc_recevicedata_cb urc_callback; /* urc数据回调 */
-		PURC_FIX_TABLE_REQ urc_table;	   /* urc匹配表 */
-		unsigned char urc_num;			   /* urc数量 */
-		char at_res_data[5][50];		   /* at响应字符串 */
-		unsigned char at_res_num;		   /* at响应字符串数量 */
-		AT_RESULT_CODE at_res_status;	   /*at指令返回状态 0成功返回 1错误返回 2超时返回*/
-		void *handle;					   /* 预留 */
+		uart_write write;					  /* 串口发送 */
+		_urc_recevicedata_cb urc_callback;	  /* urc数据回调 */
+		PURC_FIX_TABLE_REQ urc_table;		  /* urc匹配表 */
+		unsigned char urc_num;				  /* urc数量 */
+		char at_res_data[AT_RECEIVE_LEN][50]; /* at响应字符串 */
+		unsigned char at_res_num;			  /* at响应字符串数量 */
+		AT_RESULT_CODE at_res_status;		  /*at指令返回状态 0成功返回 1错误返回 2超时返回*/
+		void *handle;						  /* 预留 */
 	} UART_INFO_CTX, *PUART_INFO_CTX;
 
 	/* Exported functions prototypes ---------------------------------------------*/

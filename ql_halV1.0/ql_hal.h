@@ -44,12 +44,15 @@ extern "C"
 
 #define SEND_BUF_LEN 50 /*串口发送命令的最大长度 */
 
+#define AT_RECEIVE_LEN 5 /*at响应字符串最大长度 */
+
 #define URC_CALLBACK_ENABLE 1 /* URC指令回调数据打印 */
+#define AT_CALLBACK_ENABLE 0  /* AT指令回调数据打印 */
 
 #define INTERNAL_DEBUG
 
 #ifdef INTERNAL_DEBUG
-#define internal_log(fmt, ...) printf("[main]:File:%s  Line:%d" fmt, __FILE__, __LINE__, ##__VA_ARGS__);
+#define internal_log(fmt, ...) printf("[%s(%04d)]" fmt, __FILE__, __LINE__, ##__VA_ARGS__);
 #else
 #define internal_log(fmt, ...)
 #endif
